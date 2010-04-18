@@ -1,0 +1,23 @@
+development: &defaults
+#   adapter: sqlite3
+#   database: db/development.sqlite3
+#   pool: 5
+#   timeout: 5000
+    adapter: 'simpledb'
+    database: 'default'
+    access_key: 'YOUR_AWS_ACCESS_KEY'
+    secret_key: 'YOUR_AWS_SECRET_KEY'
+    domain: 'dm_sdb_example_development'	
+    base_url: 'https://sdb.amazon.com'
+
+
+test:
+  <<: *defaults
+  adapter: sqlite3
+  pool: 5
+  timeout: 5000
+  database: db/test.sqlite3
+
+production:
+  <<: *defaults
+  domain: 'dm_sdb_example_production'
